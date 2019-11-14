@@ -1,11 +1,12 @@
 pipeline {
     agent any  // pe ce masina va rula
     stages {
-        stage('Build') {
+     stage('Build') {
+         steps {
             withMaven(maven: 'maven-installation', mavenSettingsConfig: 'maven-settings.xml') {
-            sh 'mvn test'
-        }
-            
-        }
-    }
+            bat 'mvn -DskipTests clean package'
+             }
+       }
+}
+   
 }
