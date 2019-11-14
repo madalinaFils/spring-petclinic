@@ -10,7 +10,7 @@ pipeline {
         stage('Build') {
             steps {
                 withMaven(maven: MAVEN_INSTALLATION, mavenSettingsConfig: MAVEN_SETTINGS_CONFIG) {
-                    sh 'mvn -DskipTests clean package'
+                    bat 'mvn -DskipTests clean package'
                 }
             }
         }
@@ -18,7 +18,7 @@ pipeline {
         stage('Test') {
             steps {
                 withMaven(maven: MAVEN_INSTALLATION, mavenSettingsConfig: MAVEN_SETTINGS_CONFIG) {
-                    sh 'mvn test'
+                    bat 'mvn test'
                 }
             }
         }
